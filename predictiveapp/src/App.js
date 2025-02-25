@@ -4,20 +4,25 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import NoPage from "./Pages/NoPage";
 import Home from "./Pages/Home";
 import Sensors from "./Pages/Sensors";
+import Rul from "./Pages/Rul";
+import Dashboard from "./Pages/Dashboard"
 import Configuration from "./Pages/Configuration";
 import GraphPage from "./Pages/GraphPage";
 
 import { TotalHeader } from "./Components/Drawer";
 
+//TODO: effacer Home, car quasi identique à Dashboard?
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <TotalHeader/>
         <Routes>
-          <Route index element={<Home />} />
+          <Route index element={<Dashboard />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/rul" element={<Rul />} />
           <Route path="/sensors" element={<Sensors />} />
+          <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/graphpage" element={<GraphPage />} />
           <Route path="/config" element={<Configuration />} />
           <Route path="*" element={<NoPage />} />
