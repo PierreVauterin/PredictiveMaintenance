@@ -4,11 +4,13 @@ import Box from "@mui/material/Box";
 /* Own components */
 import { Legend } from "../Components/Legend.js";
 
+import { res } from "../Components/ChoiceMenu.js";
+
 /* Main component */
 export default function GraphPage() {
   return (
     <>
-      <h1>Détails des résultats</h1>
+      <h2>Détails des résultats (modèle: {res[3]})</h2>
       <Box
         display="flex"
         alignItems="center"
