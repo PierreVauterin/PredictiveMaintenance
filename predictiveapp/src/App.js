@@ -1,3 +1,5 @@
+import "./styles.css";
+
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import NoPage from "./Pages/NoPage";
 import Home from "./Pages/Home";
