@@ -56,7 +56,7 @@ export default function Sensors() {
           series={[
             {
               highlightScope: { faded: "global", highlighted: "item" },
-              faded: { innerRadius: 30, additionalRadius: -30 },
+              faded: { innerRadius: 30, additionalRadius: -10 },
               data: [
                 { id: 0, value: countG[0], label: "Bon état" },
                 { id: 1, value: countG[1], label: "Risque" },
@@ -65,7 +65,7 @@ export default function Sensors() {
               ]
             }
           ]}
-          width={400}
+          width={500}
           height={200}
         />
         <PieChart
