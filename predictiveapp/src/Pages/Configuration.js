@@ -19,7 +19,7 @@ export default function Configuration() {
         <Box>
           <h2>Choix du modèle durée de vie</h2>
           <Box display="flex" alignItems="center" justifyContent="center">
-            <h3>Ici le superbe tableau de perfs</h3>
+            <h3>Ici le tableau de performances des modèles</h3>
           </Box>
           <ChoiceMenu
             label="Modèle"
@@ -29,7 +29,7 @@ export default function Configuration() {
         <Box>
           <h2>Choix du modèle détection d'anomalies</h2>
           <Box display="flex" alignItems="center" justifyContent="center">
-            <h3>Ici le superbe tableau de perfs</h3>
+            <h3>Ici le tableau de performances des modèles</h3>
           </Box>
           <ChoiceMenu
             label="Modèle"
