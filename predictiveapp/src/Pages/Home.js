@@ -3,7 +3,7 @@ import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 
 /* Own components */
-import { Help } from "../Components/Notification.tsx";
+import { Help } from "../Components/Notification";
 import ChoiceMenu from "../Components/ChoiceMenu.tsx"
 
 /* Main component */
