@@ -2,7 +2,7 @@ import "./styles.css";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import NoPage from "./Pages/NoPage";
-import Home from "./Pages/Home";
+//import Home from "./Pages/Home";
 import Sensors from "./Pages/Sensors";
 import Rul from "./Pages/Rul";
 import Dashboard from "./Pages/Dashboard"
@@ -19,7 +19,6 @@ function App() {
         <TotalHeader/>
         <Routes>
           <Route index element={<Dashboard />} />
-          <Route path="/home" element={<Home />} />
           <Route path="/rul" element={<Rul />} />
           <Route path="/sensors" element={<Sensors />} />
           <Route path="/dashboard" element={<Dashboard/>} />

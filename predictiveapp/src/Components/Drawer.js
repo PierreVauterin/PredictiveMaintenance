@@ -95,7 +95,7 @@ export const Menu = () => {
           <List>
             <ListItem
               component={MyNavLink}
-              to={"/home"}
+              to={"/dashboard"}
               //activeClassName={classes.activeLink}
             >
               <ListItemIcon>{<Dashboard />}</ListItemIcon>
