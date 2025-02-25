@@ -2,6 +2,10 @@
 import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 
+/* Own components */
+import { Help } from "../Components/Notification.tsx";
+import ChoiceMenu from "../Components/ChoiceMenu.tsx"
+
 /* Main component */
 /* Une horreur, à voir si on passe ça en component ou si on peut mieux gérer les Box */
 export default function Home() {
@@ -49,6 +53,10 @@ export default function Home() {
             height="450px"
             sx={{ backgroundColor: "rgb(255,255,255)" }}
           ></Box>
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <Help helpText="Visualiser le diagramme montrant l'évolution des valeurs du capteur en fonction de l'usure" />
+          </Box>
+          <ChoiceMenu label="Capteur" data={["s1", "s2", "s3"]} />
         </Box>
       </Box>
     </>
