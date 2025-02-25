@@ -1,6 +1,7 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import NoPage from "./Pages/NoPage";
 import Home from "./Pages/Home";
+import Configuration from "./Pages/Configuration";
 
 import { TotalHeader } from "./Components/Drawer";
 
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/config" element={<Configuration />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>

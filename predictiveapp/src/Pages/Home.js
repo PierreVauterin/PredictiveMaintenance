@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 
 /* Own components */
 import { Help } from "../Components/Notification";
-import ChoiceMenu from "../Components/ChoiceMenu.tsx"
+import ChoiceMenu from "../Components/ChoiceMenu.js"
 
 /* Main component */
 /* Une horreur, à voir si on passe ça en component ou si on peut mieux gérer les Box */

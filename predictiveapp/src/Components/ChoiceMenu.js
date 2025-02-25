@@ -3,14 +3,14 @@ import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select"; // { SelectChangeEvent } 
 
 export default function ChoiceMenu(props) {
   const [sensorChoice, setSensorChoice] = React.useState("");
   const label = props.label;
   const data = props.data;
-  const handleChange = (event: SelectChangeEvent) => {
-    setSensorChoice(event.target.value as string);
+  const handleChange = (event) => {
+    setSensorChoice(event.target.value);
   };
 
   return (
