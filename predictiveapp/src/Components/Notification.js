@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import HelpIcon from "@mui/icons-material/Help";

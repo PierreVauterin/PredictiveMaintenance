@@ -1,7 +1,7 @@
 export default function NoPage() {
     return (
       <>
-        <h2>Error, something happened</h2>
+        <h2>Error, this page does not exist (yet?)</h2>
       </>
     );
   }
