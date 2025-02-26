@@ -31,7 +31,7 @@ export default function GraphPage() {
           </Box>
           <Legend
             message="Matrice des scores des différentes paires de capteurs"
-            helpText="Cliquer sur une case de la matrice ouvrira une visualisation du modèle associé"
+            helpText="Rien pour le moment"
           />
         </Box>
         <Box>
