@@ -1,6 +1,8 @@
 import { PieChart } from "@mui/x-charts";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Box from "@mui/material/Box";
+import { Typography } from "@mui/material";
+import { useState } from "react";
 //import Image from "./Images/Image.js";
 
 /*Own classes*/
@@ -9,81 +11,196 @@ import Equipment from "../Equipment.js";
 /*Own components*/
 import { ButtonDialog } from "../Components/Button";
 import { Help } from "../Components/Notification";
+import { SettingsDrawer } from "../Components/Drawer";
 
 /* Global state variable to determine color */
 import { seuils } from "../Components/Slider";
+import { res } from "../Components/ChoiceMenu";
 
+/* Main component */
 export default function Sensors() {
+  const [seuil, setSeuil] = useState([20, 40]);
+  let memory = { sensors: true, camembert: true };
+  const [Hidden, setHidden] = useState(memory);
+
+  /*
+  Function to pass as prop in order to update the visibility status
+  component: either "sensors" or "charts" (for the moment) 
+  */
+  function updateHide(event) {
+    setHidden({
+      ...Hidden,
+      [event.target.name]: event.target.checked
+    });
+  }
+
+  function onChange(value) {
+    setSeuil(value);
+  }
   const countG = countGlobalColors(list); //A voir si c'est la meilleure place/faço
   const countS = CountAllSensorsColors(list);
   return (
     <>
-      <h1>Suivi des capteurs</h1>
+      <h2>Suivi des capteurs (modèle: {res[2]})</h2>
+      <Box display="flex" alignItems="center" justifyContent="center">
+        <SettingsDrawer
+          onChange={onChange}
+          value={seuil}
+          update={updateHide}
+          state={Hidden}
+        />
+      </Box>
       <Box
         display="flex"
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        sx={{ m: 8 }}
+        sx={{ m: 6 }}
       >
-        <ButtonGroup color="primary" aria-label="outlined primary button group">
-          <ButtonDialog equipment={list[0]} />
-          <ButtonDialog equipment={list[1]} />
-          <ButtonDialog equipment={list[2]} />
-          <ButtonDialog equipment={list[3]} />
-          <ButtonDialog equipment={list[4]} />
-          <ButtonDialog equipment={list[5]} />
-          <ButtonDialog equipment={list[6]} />
-          <ButtonDialog equipment={list[7]} />
-          <ButtonDialog equipment={list[8]} />
-          <ButtonDialog equipment={list[9]} />
-          <ButtonDialog equipment={list[10]} />
-          <ButtonDialog equipment={list[11]} />
-          <ButtonDialog equipment={list[12]} />
-        </ButtonGroup>
-        <Box display="flex" justifyContent="center" alignItems="center">
-          <Help helpText="Cliquer sur un composant vous fournira les informations sur les capteurs qui y sont intégrés" />
-        </Box>
+        {Hidden["sensors"] ? (
+          <>
+            <ButtonGroup
+              color="primary"
+              aria-label="outlined primary button group"
+              id="GroupOfButtons"
+            >
+              <ButtonDialog equipment={list[0]} />
+              <ButtonDialog equipment={list[1]} />
+              <ButtonDialog equipment={list[2]} />
+              <ButtonDialog equipment={list[3]} />
+              <ButtonDialog equipment={list[4]} />
+              <ButtonDialog equipment={list[5]} />
+              <ButtonDialog equipment={list[6]} />
+              <ButtonDialog equipment={list[7]} />
+              <ButtonDialog equipment={list[8]} />
+              <ButtonDialog equipment={list[9]} />
+              <ButtonDialog equipment={list[10]} />
+              <ButtonDialog equipment={list[11]} />
+              <ButtonDialog equipment={list[12]} />
+            </ButtonGroup>
+            <Box display="flex" justifyContent="center" alignItems="center">
+              <Help helpText="Cliquer sur un composant vous fournira les informations sur les capteurs qui y sont intégrés" />
+            </Box>
+          </>
+        ) : (
+          <></>
+        )}
       </Box>
-      <Box display="flex" alignItems="center" justifyContent="center">
-        <PieChart
-          colors={[
-            "rgb(46,125,50)",
-            "rgb(237,108,2)",
-            "rgb(211,47,47)",
-            "grey"
-          ]}
-          series={[
-            {
-              highlightScope: { faded: "global", highlighted: "item" },
-              faded: { innerRadius: 30, additionalRadius: -10 },
-              data: [
-                { id: 0, value: countG[0], label: "Bon état" },
-                { id: 1, value: countG[1], label: "Risque" },
-                { id: 2, value: countG[2], label: "Danger" },
-                { id: 3, value: countG[3], label: "Pas de données" }
-              ]
-            }
-          ]}
-          width={500}
-          height={200}
-        />
-        <PieChart
-          colors={["rgb(46,125,50)", "rgb(237,108,2)", "rgb(211,47,47)"]}
-          series={[
-            {
-              highlightScope: { faded: "global", highlighted: "item" },
-              faded: { innerRadius: 30, additionalRadius: -30 },
-              data: [
-                { id: 0, value: countS[0], label: "Bon état" },
-                { id: 1, value: countS[1], label: "Risque" },
-                { id: 2, value: countS[2], label: "Danger" }
-              ]
-            }
-          ]}
-          width={400}
-          height={200}
-        />
+      {Hidden["camembert"] ? (
+        <>
+          <Box display="flex" alignItems="center" justifyContent="center">
+            <Box>
+              <h3>État des équipements</h3>
+              <PieChart
+                colors={[
+                  "rgb(46,125,50)",
+                  "rgb(237,108,2)",
+                  "rgb(211,47,47)",
+                  "rgb(2,136,209)"
+                ]}
+                series={[
+                  {
+                    highlightScope: { faded: "global", highlighted: "item" },
+                    faded: { innerRadius: 30, additionalRadius: -30 },
+                    data: [
+                      { id: 0, value: countG[0] },
+                      { id: 1, value: countG[1] },
+                      { id: 2, value: countG[2] },
+                      { id: 3, value: countG[3] }
+                    ]
+                  }
+                ]}
+                width={300}
+                height={200}
+              />
+            </Box>
+            <Box>
+              <h3>État des capteurs</h3>
+              <PieChart
+                colors={["rgb(46,125,50)", "rgb(237,108,2)", "rgb(211,47,47)"]}
+                series={[
+                  {
+                    highlightScope: { faded: "global", highlighted: "item" },
+                    faded: { innerRadius: 30, additionalRadius: -30 },
+                    data: [
+                      { id: 0, value: countS[0] },
+                      { id: 1, value: countS[1] },
+                      { id: 2, value: countS[2] }
+                    ]
+                  }
+                ]}
+                width={300}
+                height={200}
+                id="ChartSensors"
+              />
+            </Box>
+          </Box>
+        </>
+      ) : (
+        <></>
+      )}
+      <Box display="flex" justifyContent="center">
+        <h3>Pourcentages d'anomalies</h3>
+      </Box>
+      <Box display="flex" justifyContent="center">
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          alignItems="flex-end"
+        >
+          <Box>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="flex-end"
+            >
+              <Box
+                width="30px"
+                height="30px"
+                sx={{ backgroundColor: "rgb(2,136,209)", m: 1 }}
+              ></Box>
+              <Typography>Pas de données</Typography>
+            </Box>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="flex-end"
+            >
+              <Box
+                width="30px"
+                height="30px"
+                sx={{ backgroundColor: "rgb(46,125,50)", m: 1 }}
+              ></Box>
+              <Typography>0%-{seuils[0]}%</Typography>
+            </Box>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="flex-end"
+            >
+              <Box
+                width="30px"
+                height="30px"
+                sx={{ backgroundColor: "rgb(237,108,2)", m: 1 }}
+              ></Box>
+              <Typography>
+                {seuils[0]}%-{seuils[1]}%
+              </Typography>
+            </Box>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="flex-end"
+            >
+              <Box
+                width="30px"
+                height="30px"
+                sx={{ backgroundColor: "rgb(211,47,47)", m: 1 }}
+              ></Box>
+              <Typography>{seuils[1]}%-100%</Typography>
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </>
   );
