@@ -2,7 +2,7 @@
 
 Welcome to the Predictive Maintenance app. This application will help you manipulate your predictive maintenance program. It will provide several tools, such as machine learning algorithms and prediction graphs to help you monitor your current equipment's wear.
 
-#What is currently available
+# What is currently available
 
 Right now, you can only interact with a pure interface, without back-end code running in the background. Still, this interface will show you which tools are planned to be implemented in the future.
 
