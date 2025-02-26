@@ -12,7 +12,7 @@ import model from  "../Images/svmModel.png"
 export default function GraphPage() {
   return (
     <>
-      <h2>Détails des résultats (modèle: {res[3]})</h2>
+      <h2>Détails des résultats {res[3]}</h2>
       <Box
         display="flex"
         alignItems="center"

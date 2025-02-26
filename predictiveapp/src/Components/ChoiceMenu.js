@@ -8,8 +8,8 @@ import { useState } from "react";
 
 import { Button } from "@mui/material";
 
-export var res = ["", "", "", ""]; //Stores all the choices made with the menu below
-var index = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+export const res = ["", "", "", ""]; //Stores all the choices made with the menu below
+const index = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
 /* 
 Fonctionne comme prévu
@@ -27,7 +27,7 @@ export default function ChoiceMenu(props) {
   };
   function validate() {
     //Pushes the new value iff the button has been pushed
-    res[id] = data[index[id] - 1];
+    res[id] = "(modèle" + data[index[id] - 1]+ ")";
     if (props.update != null) props.update(res[id]);
   }
   return (

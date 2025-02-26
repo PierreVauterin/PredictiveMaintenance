@@ -41,7 +41,7 @@ export default function Sensors() {
   const countS = CountAllSensorsColors(list);
   return (
     <>
-      <h2>Suivi des capteurs (modèle: {res[2]})</h2>
+      <h2>Suivi des capteurs {res[2]}</h2>
       <Box display="flex" alignItems="center" justifyContent="center">
         <SettingsDrawer
           onChange={onChange}

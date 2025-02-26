@@ -34,7 +34,7 @@ export default function Rul() {
 
   return (
     <>
-      <h2>Durée de vie (modèle: {res[2]})</h2>
+      <h2>Durée de vie {res[2]}</h2>
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Box sx={{ m: 10 }}>
           <h3>Durée de vie restante estimée au cycle X</h3>
