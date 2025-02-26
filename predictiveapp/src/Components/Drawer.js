@@ -12,6 +12,7 @@ import Divider from "@mui/material/Divider";
 import LoupeIcon from "@mui/icons-material/Loupe";
 import BuildIcon from '@mui/icons-material/Build';
 import SettingsIcon from "@mui/icons-material/Settings";
+import SensorsIcon from '@mui/icons-material/Sensors';
 import ListItemIcon from "@mui/material/ListItemIcon";
 
 import { SwitchesGroup } from "./Switch";
@@ -102,10 +103,18 @@ export const Menu = () => {
             </ListItem>
             <ListItem
               component={MyNavLink}
-              to={"/sensors"}
+              to={"/dataPage"}
               //activeClassName={classes.activeLink}
             >
               <ListItemIcon>{<Equalizer />}</ListItemIcon>
+              <ListItemText primary={"Données"} />
+            </ListItem>
+            <ListItem
+              component={MyNavLink}
+              to={"/sensors"}
+              //activeClassName={classes.activeLink}
+            >
+              <ListItemIcon>{<SensorsIcon />}</ListItemIcon>
               <ListItemText primary={"Suivi des capteurs"} />
             </ListItem>
           </List>

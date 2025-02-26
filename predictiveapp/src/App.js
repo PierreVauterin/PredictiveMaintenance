@@ -7,6 +7,7 @@ import Rul from "./Pages/Rul";
 import Dashboard from "./Pages/Dashboard"
 import Configuration from "./Pages/Configuration";
 import GraphPage from "./Pages/GraphPage";
+import DataPage from "./Pages/DataPage"
 
 import { TotalHeader } from "./Components/Drawer";
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/graphpage" element={<GraphPage />} />
           <Route path="/config" element={<Configuration />} />
           <Route path="*" element={<NoPage />} />
+          <Route path="/datapage" element={<DataPage />} />
         </Routes>
       </BrowserRouter>
     </div>
