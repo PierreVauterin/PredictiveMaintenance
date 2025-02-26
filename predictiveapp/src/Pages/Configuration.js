@@ -24,6 +24,7 @@ export default function Configuration() {
           <ChoiceMenu
             label="Modèle"
             data={["XGBoost", "Random Forest", "Régression linéaire"]}
+            sx={{ color: "white" }}
           />
         </Box>
         <Box>
@@ -38,6 +39,7 @@ export default function Configuration() {
               "Régression logistique",
               "SVM monoclasse"
             ]}
+            sx={{ color: "white" }}
           />
         </Box>
       </Box>
