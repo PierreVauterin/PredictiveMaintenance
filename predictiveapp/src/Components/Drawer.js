@@ -12,7 +12,6 @@ import Dashboard from "@mui/icons-material/Dashboard";
 import Divider from "@mui/material/Divider";
 import LoupeIcon from "@mui/icons-material/Loupe";
 import BuildIcon from '@mui/icons-material/Build';
-import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 import { SwitchesGroup } from "./Switch";
@@ -133,7 +132,7 @@ export const Menu = () => {
           <List>
             <ListItem
               component={MyNavLink}
-              to={"/map"}
+              to={"/config"}
               //activeClassName={classes.activeLink}
             >
               <ListItemIcon>{<BuildIcon />}</ListItemIcon>
