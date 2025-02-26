@@ -4,18 +4,12 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 
-//Mobix
-let memory = { sensors: true, camembert: true };
-
-export function SwitchesGroup() {
-  const [state, setState] = React.useState({ memory });
+export function SwitchesGroup(props) {
+  const update = props.update;
+  const memory = props.state || {};
 
   const handleChange = (event) => {
-    setState({
-      ...state,
-      [event.target.name]: event.target.checked
-    });
-    console.clear();
+    update(event)
     memory[event.target.name] = event.target.checked;
   };
 

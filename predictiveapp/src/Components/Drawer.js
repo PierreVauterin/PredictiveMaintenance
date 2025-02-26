@@ -2,7 +2,6 @@ import { Drawer, Box, Typography, IconButton } from "@mui/material";
 import { useState } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
 import MenuIcon from "@mui/icons-material/Menu";
@@ -13,6 +12,7 @@ import Divider from "@mui/material/Divider";
 import LoupeIcon from "@mui/icons-material/Loupe";
 import BuildIcon from '@mui/icons-material/Build';
 import SettingsIcon from "@mui/icons-material/Settings";
+import ListItemIcon from "@mui/material/ListItemIcon";
 
 import { SwitchesGroup } from "./Switch";
 import { RangeSlider } from "./Slider";
@@ -146,9 +146,15 @@ export const Menu = () => {
   );
 };
 
-/* Settings component: allows to switch/change/idk things */
-
-export const SettingsDrawer = () => {
+/* 
+A drawer containing 2 switches and 1 slider
+Props:
+- onChange: the state setter of the slider
+- state: the values of the switches
+- update: the state setter of the switches
+- value: the value of the slider
+*/
+export const SettingsDrawer = (props) => {
   const [areSettingsOpen, setAreSettingsOpen] = useState(false);
   return (
     <>
@@ -182,7 +188,7 @@ export const SettingsDrawer = () => {
           <Divider />
           <List>
             <Typography>Montrer/Cacher les éléments</Typography>
-            <SwitchesGroup />
+            <SwitchesGroup update={props.update} state={props.state}/>
           </List>
           <Divider />
           <List>
@@ -215,7 +221,7 @@ export const SettingsDrawer = () => {
           <Divider />
           <List>
             <Typography>Changer seuils d'alertes</Typography>
-            <RangeSlider />
+            <RangeSlider onChange={props.onChange} value={props.value}/>
           </List>
           <Divider />
           <DisableHelp />
@@ -225,14 +231,14 @@ export const SettingsDrawer = () => {
   );
 };
 
-export const TotalHeader = () => {
+export const TotalHeader = (props) => {
   return (
     <>
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Menu />
         <Notification />
-        <SettingsDrawer />
       </Box>
+      <h1>{props.title}</h1>
     </>
   );
 };
