@@ -14,7 +14,7 @@ const index = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 /* 
 Fonctionne comme prévu
 Une erreur à régler concernant une unique key
-Gérer la taille de la boîte
+Gérer la taille de la boîte<input type="file" />
 */
 export default function ChoiceMenu(props) {
   const label = props.label;

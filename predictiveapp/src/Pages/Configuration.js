@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 
 /* Own component */
 import ChoiceMenu from "../Components/ChoiceMenu";
+import ChooseFile from "../Components/ChooseFile";
 
 /* Main component */
 export default function Configuration() {
@@ -41,6 +42,14 @@ export default function Configuration() {
             ]}
             sx={{ color: "white" }}
           />
+        </Box>
+        <Box>
+          <h2>Choix du dataset</h2>
+          <Box display="flex" alignItems="center" justifyContent="center">
+            <h3>Veuillez renseigner le chemin d'accès de votre dataset</h3>
+          </Box>
+          <ChooseFile>
+          </ChooseFile>
         </Box>
       </Box>
       <Box display="flex" alignItems="center" justifyContent="center">
