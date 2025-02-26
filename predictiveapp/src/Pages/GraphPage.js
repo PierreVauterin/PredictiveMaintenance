@@ -3,8 +3,10 @@ import Box from "@mui/material/Box";
 
 /* Own components */
 import { Legend } from "../Components/Legend.js";
-
 import { res } from "../Components/ChoiceMenu.js";
+
+import matrix from "../Images/matrix.png"
+import model from  "../Images/svmModel.png"
 
 /* Main component */
 export default function GraphPage() {
@@ -24,8 +26,9 @@ export default function GraphPage() {
             alignItems="flex-end"
             width="600px"
             height="600px"
-            sx={{ backgroundColor: "rgb(255,255,255)" }}
-          ></Box>
+          >
+            <img src = {matrix} alt = "Matrix" height={600} width={600}/>
+          </Box>
           <Legend
             message="Matrice des scores des différentes paires de capteurs"
             helpText="Cliquer sur une case de la matrice ouvrira une visualisation du modèle associé"
@@ -38,8 +41,9 @@ export default function GraphPage() {
             alignItems="flex-end"
             width="600px"
             height="600px"
-            sx={{ backgroundColor: "rgb(255,255,255)" }}
-          ></Box>
+          >
+            <img src = {model} alt = "Model" height={600} width={600}/>
+          </Box>
           <Legend
             message="Visualisation du modèle pour la paire PLACEHOLDER"
             helpText="Permet de visualiser la répartition des anomalies"
