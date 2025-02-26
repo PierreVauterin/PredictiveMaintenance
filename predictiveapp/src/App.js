@@ -2,7 +2,6 @@ import "./styles.css";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import NoPage from "./Pages/NoPage";
-//import Home from "./Pages/Home";
 import Sensors from "./Pages/Sensors";
 import Rul from "./Pages/Rul";
 import Dashboard from "./Pages/Dashboard"
@@ -11,7 +10,6 @@ import GraphPage from "./Pages/GraphPage";
 
 import { TotalHeader } from "./Components/Drawer";
 
-//TODO: effacer Home, car quasi identique à Dashboard?
 function App() {
   return (
     <div className="App">
