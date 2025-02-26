@@ -136,14 +136,6 @@ export const Menu = () => {
               to={"/map"}
               //activeClassName={classes.activeLink}
             >
-              <ListItemIcon>{<TravelExploreIcon />}</ListItemIcon>
-              <ListItemText primary={"Cartographie"} />
-            </ListItem>
-            <ListItem
-              component={MyNavLink}
-              to={"/config"}
-              //activeClassName={classes.activeLink}
-            >
               <ListItemIcon>{<BuildIcon />}</ListItemIcon>
               <ListItemText primary={"Configuration"} />
             </ListItem>
