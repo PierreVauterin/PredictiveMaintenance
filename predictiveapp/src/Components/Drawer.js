@@ -80,7 +80,7 @@ export const Menu = () => {
       >
         <Box
           p={2}
-          width="250px"
+          width="88%"
           height="100%"
           textAlign="center"
           role="presentation"
