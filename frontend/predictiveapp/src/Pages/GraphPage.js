@@ -5,8 +5,8 @@ import Box from "@mui/material/Box";
 import { Legend } from "../Components/Legend.js";
 import { res } from "../Components/ChoiceMenu.js";
 
-import matrix from "../Images/matrix.png"
-import model from  "../Images/svmModel.png"
+import matrix from "../ressources/images/matrix.png"
+import model from  "../ressources/images/svmModel.png"
 
 /* Main component */
 export default function GraphPage() {

@@ -7,22 +7,31 @@ import { useEffect, useState } from "react";
 import { Help } from "../Components/Notification.js";
 import ChoiceMenu from "../Components/ChoiceMenu";
 import { Chart } from "../Components/Chart";
-var sensorList = ["s1", "s2", "s3", "s8", "s12"];
+import api from "../api";
+
+const sensorList = ["s1", "s2", "s3", "s8", "s12"];
 
 /* Main component */
 export default function Dashboard() {
   const [sensorChoice, setSensorChoice] = useState("s1");
   const [data, setData] = useState([]);
   const keyList = [];
+
   useEffect(() => {
-    const newData = [];
-    for (let i = 0; i < 50; i++) {
-      newData.push({
-        Observation: i + 1,
-        Value: (Math.random() * 10 + 10).toFixed(2)
+    // Call FastAPI route to get numbers
+    api
+      .get("/numbers/50")
+      .then((response) => {
+        const numbers = response.data;
+        const newData = numbers.map((value, index) => ({
+          Observation: index + 1,
+          Value: value.toFixed(2),
+        }));
+        setData(newData);
+      })
+      .catch((err) => {
+        console.error("Error fetching numbers from API:", err);
       });
-    }
-    setData(newData);
   }, []);
 
   function updateSensor(value) {
@@ -35,13 +44,13 @@ export default function Dashboard() {
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Box sx={{ m: 10 }}>
           <h3>Nombre d'observations recueillies</h3>
-          <h3>30</h3>
+          <h3>{data.length}</h3>
           <Divider sx={{ borderBottomWidth: 5 }} />
           <h3>Durée avant prochaine observation</h3>
-          <h3>3 heures</h3>
+          <h3>{data[0]?.Value} heures</h3>
           <Divider sx={{ borderBottomWidth: 5 }} />
           <h3>Durée entre observations</h3>
-          <h3>5h</h3>
+          <h3>{data[1]?.Value}h</h3>
         </Box>
         <Box>
           <h3>Temps écoulé depuis le début de suivi</h3>

@@ -4,8 +4,8 @@ import Box from "@mui/material/Box";
 /* Own components */
 import { Legend } from "../Components/Legend.js";
 
-import correlation from "../Images/correlation.png"
-import model from  "../Images/svmModel.png"
+import correlation from "../ressources/images/correlation.png"
+import model from  "../ressources/images/svmModel.png"
 
 /* Main component */
 export default function DataPage() {
