@@ -1,0 +1,28 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
+
+from src.numbers.generateNumbers import generateNumbers
+
+app = FastAPI()
+
+origins = ["http://localhost:3000"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins = origins,
+    allow_credentials = True,
+    allow_methods = ["*"],
+    allow_headers  = ["*"],
+)
+
+@app.get("/numbers/{amount}")
+async def generateGraphNumbers(amount: int):
+    return generateNumbers(amount)
+
+@app.get("/")
+async def root():
+    return "Nothing to show here for now"
+
+if __name__ == "__main__":
+    uvicorn.run(app, host = "0.0.0.0", port = 8000)
